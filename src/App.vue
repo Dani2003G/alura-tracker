@@ -1,7 +1,7 @@
 <template>
   <main class="columns is-gapless is-multiline">
     <div class="column is-one-quarter">
-      <BarraLateral/>
+      <BarraLateral style="text-align: center"/>
     </div>
     <div class="column is-three-quarter">
       <Formulario/>
