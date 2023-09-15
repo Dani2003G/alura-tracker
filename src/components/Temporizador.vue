@@ -1,6 +1,6 @@
 <template>
   <div class="is-flex is-align-items-center is-justify-content-space-between">
-    <Cronometro :tempo-em-segundo="tempoEmSegundo"/>
+    <Cronometro :tempoEmSegundo="tempoEmSegundo"/>
     <button class="button" @click="iniciar" :disabled="cronometroRodando">
           <span class="icon">
             <i class="fa fa-play"/>
@@ -24,11 +24,12 @@ import Cronometro from "@/components/Cronometro.vue";
 
 export default defineComponent({
   name: 'TemporizadorTarefa',
+  emits: ['aoTemporizadorFinalizado'],
   components: {Cronometro},
   data: () => ({
     tempoEmSegundo: 0,
     cronometro: 0,
-    cronometroRodando: false
+    cronometroRodando: false,
   }),
   methods: {
     iniciar() {
@@ -40,8 +41,10 @@ export default defineComponent({
       }, 1000);
     },
     finalizar() {
-      this.cronometroRodando = false
+      this.cronometroRodando = false;
       clearInterval(this.cronometro);
+      this.$emit("aoTemporizadorFinalizado", this.tempoEmSegundo);
+      this.tempoEmSegundo = 0;
     }
   },
 });
