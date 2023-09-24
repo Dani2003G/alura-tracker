@@ -1,6 +1,8 @@
 <template>
   <section>
-    <strong class="display">{{tempoDecorrido}}</strong>
+    <strong class="display">
+      <i class="far fa-clock"></i>
+      {{ tempoDecorrido }}</strong>
   </section>
 </template>
 
@@ -8,7 +10,7 @@
 
 import {defineComponent} from 'vue';
 
-export default defineComponent ({
+export default defineComponent({
   name: 'CronometroTarefa',
   props: {
     tempoEmSegundo: {
