@@ -17,6 +17,7 @@
 <script lang="ts">
 import {defineComponent} from "vue";
 import {useStore} from "@/store";
+import {ADICIONAR_PROJETO, ALTERA_PROJETO} from "@/store/tipo_mutation";
 
 export default defineComponent({
   name: 'FormularioProjeto',
@@ -31,12 +32,12 @@ export default defineComponent({
   methods: {
     salvar() {
       if(this.id) {
-        this.store.commit('ALTERA_PROJETO', {
+        this.store.commit(ALTERA_PROJETO, {
           id: this.id,
           nome: this.nomeDoProjeto
         })
       } else {
-        this.store.commit('ADICIONAR_PROJETO', this.nomeDoProjeto);
+        this.store.commit(ADICIONAR_PROJETO, this.nomeDoProjeto);
       }
       this.nomeDoProjeto = '';
       this.$router.push('/projetos')
