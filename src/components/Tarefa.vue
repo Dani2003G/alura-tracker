@@ -7,6 +7,11 @@
       <div class="column">
         <CronometroTarefa :tempoEmSegundo="tarefa.duracaoEmSegundo"/>
       </div>
+      <button class="button ml-2 is-danger" @click="excluir(tarefa.id)">
+              <span class="icon is-small">
+                <i class="fas fa-trash"></i>
+              </span>
+      </button>
     </div>
   </BoxTarefa>
 </template>
@@ -16,6 +21,8 @@ import {defineComponent, PropType} from "vue";
 import CronometroTarefa from "@/components/Cronometro.vue";
 import ITarefas from "@/interfaces/ITarefas";
 import BoxTarefa from "@/components/Box.vue";
+import {store, useStore} from "@/store";
+import {REMOVE_TAREFA} from "@/store/tipo_mutation";
 
 export default defineComponent({
   name: 'TarefaVue',
@@ -26,12 +33,16 @@ export default defineComponent({
     }
   },
   components: {BoxTarefa, CronometroTarefa},
-  data: () => ({
-
-  })
+  methods: {
+    excluir(id: string) {
+      this.store.commit(REMOVE_TAREFA, id)
+    }
+  },
+  setup() {
+    const store = useStore();
+    return {
+      store
+    }
+  }
 })
 </script>
-
-
-<style scoped>
-</style>
