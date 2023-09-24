@@ -1,4 +1,4 @@
-<template xmlns:article="http://www.w3.org/1999/html">
+<template>
   <div class="notificacoes">
     <article class="message" :class="contexto[notificao.tipo]" v-for="notificao in notificacoes" :key="notificao.id">
       <div class="message-header">
