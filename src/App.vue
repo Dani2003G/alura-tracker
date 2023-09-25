@@ -47,4 +47,9 @@ main.modo-escuro {
 .conteudo {
   background-color: var(--bg-primario);
 }
+
+.texto {
+  color: var(--texto-primario);
+}
+
 </style>

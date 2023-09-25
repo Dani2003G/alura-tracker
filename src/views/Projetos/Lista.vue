@@ -1,6 +1,6 @@
 <template>
   <section>
-    <router-link to="/projetos/novo" class="button">
+    <router-link to="/projetos/novo"  style="margin-bottom: 0.5rem" class="button">
       <span class="icon is-small">
         <i class="fas fa-plus"></i>
       </span>
@@ -56,5 +56,4 @@ export default defineComponent({
     }
   }
 })
-
 </script>
