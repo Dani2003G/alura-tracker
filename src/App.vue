@@ -1,10 +1,10 @@
 <template>
   <main class="columns is-gapless is-multiline" :class="{ 'modo-escuro' : modoEscuroAtivo }">
+    <NotificacoesTarefa/>
     <div class="column is-one-quarter">
       <BarraLateral @aoTemaAlterado="trocarTema"/>
     </div>
     <div class="column is-three-quarter conteudo">
-      <NotificacoesTarefa/>
       <router-view/>
     </div>
   </main>
@@ -51,5 +51,14 @@ main.modo-escuro {
 .texto {
   color: var(--texto-primario);
 }
+
+@media screen and (max-width: 764px) {
+  .conteudo {
+    flex: none;
+    width: auto!important;
+    height: 100vh;
+  }
+}
+
 
 </style>
